@@ -11,8 +11,8 @@ namespace MoodAnalyserTest
         {
             try
             {
-                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility();
-                string mood = moodAnalyser.analyseMood("happy");
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility("happy");
+                string mood = moodAnalyser.analyseMood();
                 Assert.AreEqual("happy", mood);
             }
             catch (MoodAnalyser.MoodAnalysisException e)
@@ -26,8 +26,8 @@ namespace MoodAnalyserTest
         {
             try
             {
-                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility();
-                string mood = moodAnalyser.analyseMood("I am in Sad Mood");
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility("I am in Sad Mood");
+                string mood = moodAnalyser.analyseMood();
                 Assert.AreEqual("sad", mood);
             }
             catch (MoodAnalyser.MoodAnalysisException e)
@@ -41,9 +41,9 @@ namespace MoodAnalyserTest
         {
             try
             {
-                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility();
-                string mood = moodAnalyser.analyseMood("I am in Any Mood");
-                Assert.AreEqual("happy", mood);
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility("I am in Happy mood");
+                string mood = moodAnalyser.analyseMood();
+                Assert.AreEqual("sad", mood);
             }
             catch (MoodAnalyser.MoodAnalysisException e)
             {

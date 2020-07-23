@@ -4,12 +4,20 @@ namespace MoodAnalyser
 {
     public class MoodAnalyserUtility
     {
+        private string message;
+
         public MoodAnalyserUtility()
         {
         }
 
-        public string analyseMood(String message)
+        public MoodAnalyserUtility(string message)
         {
+            this.message = message;
+        }
+
+        public string analyseMood()
+        {
+            
             try
             {
                 if (message.Equals("happy") || message.Equals("I am in Any Mood"))
