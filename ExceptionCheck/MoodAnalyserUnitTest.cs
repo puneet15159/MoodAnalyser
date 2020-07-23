@@ -21,6 +21,20 @@ namespace MoodAnalyserTest
             }
         }
 
+        [Test]
+        public void givenSadMessage_WhenAnalyse_ShouldReturnTrue()
+        {
+            try
+            {
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility();
+                string mood = moodAnalyser.analyseMood("I am in Sad Mood");
+                Assert.AreEqual("sad", mood);
+            }
+            catch (MoodAnalyser.MoodAnalysisException e)
+            {
+                Assert.AreEqual("please enter proper message", e.Message);
+            }
+        }
         /*[Test]
         public void givenNullMood_WhenAnalyse_ShouldReturnNullException()
         {
