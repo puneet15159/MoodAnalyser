@@ -50,19 +50,21 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("please enter proper message", e.Message);
             }
         }
-        /*[Test]
-        public void givenNullMood_WhenAnalyse_ShouldReturnNullException()
+        [Test]
+        public void givenNullMood_WhenAnalyse_ShouldReturnTrue()
         {
             try
             {
-                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility();
-                string mood = moodAnalyser.analyseMood(null);
-                *//*Assert.AreEqual("happy", mood);*//*
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility(null);
+                string mood = moodAnalyser.analyseMood();
+                Assert.AreEqual("happy", mood);
             }
-            catch (MoodAnalyser.MoodAnalysisException e)
+            catch (NullReferenceException e)
             {
-                Assert.AreEqual("please enter proper message", e.Message);
+                Assert.Null(null);
+                //Assert.IsNull(moodAnalyser.analyseMood());
+                //Assert.AreEqual("please enter proper message", e.Message);
             }
-        }*/
+        }
     }
 }

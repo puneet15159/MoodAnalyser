@@ -17,7 +17,10 @@ namespace MoodAnalyser
 
         public string analyseMood()
         {
-            
+            if (message == null)
+            {
+                return "happy";
+            }
             try
             {
                 if (message.Equals("happy") || message.Equals("I am in Any Mood"))
