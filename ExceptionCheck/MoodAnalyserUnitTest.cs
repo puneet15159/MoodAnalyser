@@ -41,17 +41,17 @@ namespace MoodAnalyserTest
         {
             try
             {
-                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility("I am in Happy mood");
+                MoodAnalyser.MoodAnalyserUtility moodAnalyser = new MoodAnalyser.MoodAnalyserUtility("I am in any mood");
                 string mood = moodAnalyser.analyseMood();
-                Assert.AreEqual("sad", mood);
+                Assert.AreEqual("happy", mood);
             }
             catch (MoodAnalyser.MoodAnalysisException e)
             {
-                Assert.AreEqual("please enter proper message", e.Message);
+                Assert.AreEqual(MoodAnalysisException.ExceptionType.INVALID_MOOD, e.type);
             }
         }
         [Test]
-        public void givenNullMood_WhenAnalyse_ShouldReturnTrue()
+        public void givenInvalidMood_WhenAnalyse_ShouldReturnTrue()
         {
             try
             {
@@ -59,11 +59,10 @@ namespace MoodAnalyserTest
                 string mood = moodAnalyser.analyseMood();
                 Assert.AreEqual("happy", mood);
             }
-            catch (NullReferenceException e)
+            catch (MoodAnalyser.MoodAnalysisException e)
             {
-                Assert.Null(null);
-                //Assert.IsNull(moodAnalyser.analyseMood());
-                //Assert.AreEqual("please enter proper message", e.Message);
+                Assert.AreEqual(MoodAnalysisException.ExceptionType.INVALID_MOOD, e.type);
+                
             }
         }
     }

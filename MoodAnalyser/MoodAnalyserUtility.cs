@@ -17,13 +17,13 @@ namespace MoodAnalyser
 
         public string analyseMood()
         {
-            if (message == null)
+            if (message == null || message == "")
             {
-                return "happy";
+                throw new MoodAnalysisException("This is a invalid Mood", MoodAnalyser.MoodAnalysisException.ExceptionType.INVALID_MOOD);
             }
             try
             {
-                if (message.Equals("happy") || message.Equals("I am in Any Mood"))
+                if (message.Equals("happy") || message.Equals("I am in any mood"))
                 {
                     return "happy";
                 }
@@ -32,7 +32,7 @@ namespace MoodAnalyser
             }
             catch (NullReferenceException)
             {
-                throw new MoodAnalysisException("please enter proper message");
+                throw new MoodAnalysisException("This is a null message",MoodAnalysisException.ExceptionType.INVALID_MOOD);
             }
             
             
